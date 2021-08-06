@@ -1,0 +1,5 @@
+if the range is lost it gives losely conversion error
+
+we can gie scientic notations using 23e2 like this
+
+when characters are added they give a number which is sum of ascii value
