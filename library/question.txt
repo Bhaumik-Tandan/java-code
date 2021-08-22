@@ -1,0 +1,20 @@
+You must set up a library information system that keeps track of book information. 
+A package with the following two classes should be included in your program: Book and Test.
+The information regarding books will be contained in the Book. 
+The following attributes can be used to represent a book: int bookID, 
+String bookName, double rentPriceWeekly, and String bookDescription.
+Remember to include public "set" and "get" methods in the Book class to access these encapsulated attributes.
+The method main will be in the class Test, as well as a method named displayBooksArrayInfo.
+The method displayBooksArrayInfo takes an array of Book references to print 
+out the information of the contents of the array and returns no value. 
+This method calls the “get” methods of class Book to access the related information.
+In main, read the number of the Books in the library and define a suitable array 
+called BooksArray to store the Book references.
+Then, make each content of the array refer to new Book instances. 
+Do not forget to read and set the data for these Books.
+Finally, 
+use the displayBooksArrayInfo function to print the data for each array element. 
+Then, in class Book, add the following attribute: boolean isAvailable. 
+This data member refers whether the corresponding Book is available to rent or not.
+In class Book, also add a public method called calculateWeeklyIncome. 
+This method takes no parameter and returns the weekly revenue of a Book.
