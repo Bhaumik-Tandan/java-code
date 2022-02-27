@@ -13,7 +13,7 @@ public class Q4 {
 
     static void test()
         {
-            System.out.println("\nEnter the key: ");
+            System.out.print("\nEnter the key: ");
             Scanner sc = new Scanner(System.in);
             String key = sc.next();
             if(map.containsKey(key))
