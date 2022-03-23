@@ -22,7 +22,7 @@ class Receive extends Thread{
                 packet=new DatagramPacket(buffer,1024);
                 socket.receive(packet);
                 String str = new String(buffer);
-                System.out.println("Client: "+str);
+                System.out.println("Message Received: "+str);
             }
         }
         catch(Exception e){
@@ -34,8 +34,9 @@ class Receive extends Thread{
 class Send extends Thread{
     DatagramSocket socket;
     int port;
-    Send(DatagramSocket socket){
+    Send(DatagramSocket socket,int port){
         this.socket = socket;
+        this.port=port;
     }
     public void run()
     {
@@ -45,7 +46,7 @@ class Send extends Thread{
         Scanner s=new Scanner(System.in);
         String str=s.nextLine();
         byte buffer[]=str.getBytes();
-        DatagramPacket packet = new DatagramPacket(buffer,buffer.length,InetAddress.getLocalHost(),socket.getLocalPort());
+        DatagramPacket packet = new DatagramPacket(buffer,buffer.length,InetAddress.getLocalHost(),this.port);
         socket.send(packet);
             }
             catch(Exception e){
@@ -55,18 +56,20 @@ class Send extends Thread{
     }
 
 }
-class Server
+class Q1
 {
 public static void main(String[] a) 
 {
     Scanner s=new Scanner(System.in);
-    System.out.print("Enter the port number: ");
+    System.out.print("Enter your port number: ");
     int port=s.nextInt();
+    System.out.print("Enter the other port: ");
+    int receiver_port=s.nextInt();
     try{
     DatagramSocket ds=new DatagramSocket(port);
     Receive r=new Receive(ds);
     r.start();
-    Send send=new Send(ds);
+    Send send=new Send(ds,receiver_port);
     send.start();
     }
     catch(SocketException e){

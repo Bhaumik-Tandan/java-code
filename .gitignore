@@ -1,1 +1,4 @@
 *.class
+/advance_java/lab-da-3/q4/target/
+/advance_java/lab-da-3/q4/nbproject/private/
+/advance_java/lab-da-3/q4/build/
